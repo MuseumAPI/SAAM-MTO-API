@@ -1,2 +1,0 @@
-# SAAM-MTO-API
-SAAM Museum API
