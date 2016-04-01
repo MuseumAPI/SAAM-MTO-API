@@ -1,0 +1,50 @@
+{ "museum":[
+    {
+        "name":"Renwick Gallery",
+        "image":"https://renwick.americanart.si.edu/sites/default/files/renwick/architecture_images/exterior_west-Photo-by-Ron-Blunt_800px.jpg",
+        "openingHours":"Open daily 10 a.m.–5:30 p.m. Closed December 25",
+        "address":"Pennsylvania Avenue at 17th Street NW Washington, DC 20006",
+        "branchCode":"",
+        "geo":"38.899023,-77.0412513",
+        "map":"https://www.google.com/maps/place/Renwick+Gallery+of+the+Smithsonian+American+Art+Museum,+1700+Pennsylvania+Ave+NW,+Washington,+DC+20006/@38.899023,-77.0412513",
+        "telephone":"(202) 633-7970",
+        "url":"https://renwick.americanart.si.edu/",
+        "description":"The Renwick Gallery is home to the Smithsonian American Art Museum’s collection of contemporary craft and decorative art, one of the finest and most extensive collections of its kind. The museum’s home is a National Historic Landmark, the first built expressly as an art museum in the United States, and is named in honor of its architect, James Renwick, Jr. It has been a branch of the Smithsonian since 1972. The Renwick exhibits the most exciting works by artists exploring traditional and innovative approaches to making, emphasizing craft as an approach to living differently in the modern world. Collections, special exhibitions, and scholarship highlight how extraordinary handmade objects have shaped the American experience and continue to impact our lives.
+
+The Renwick Gallery reopens to the public on Friday, November 13 following a major two-year renovation. A opening exhibition titled WONDER, featuring nine major contemporary artists, a celebratory weekend of public programs, and three special publications will accompany the reopening.",
+        "event":["","",]
+    },
+    {
+        "name":"Smithsonian American Art Museum",
+        "image":"http://americanart.si.edu/visit/images/reynolds.jpg",
+        "openingHours":"Open daily 10 a.m.–5:30 p.m. Closed December 25",
+        "address":"1700 Pennsylvania Ave NW, Washington, DC 20006",
+        "branchCode":"SAAM",
+        "geo":"38.8979902,-77.0230055",
+        "map":"https://www.google.com/maps/place/Smithsonian+American+Art+Museum/@38.8979902,-77.0230055,17",
+        "telephone":"(202) 633-7970",
+        "url":"https://renwick.americanart.si.edu/",
+        "description":"The Smithsonian American Art Museum, the nation's first collection of American art, is an unparalleled record of the American experience. The collection captures the aspirations, character, and imagination of the American people throughout three centuries. The museum is the home to one of the largest and most inclusive collections of American art in the world. Its artworks reveal key aspects of America's rich artistic and cultural history from the colonial period to today.
+The American Art Museum's Mission
+
+The Smithsonian American Art Museum is dedicated to collecting, understanding, and enjoying American art. The Museum celebrates the extraordinary creativity of artists whose works reflect the American experience and global connections.
+The museum has been a leader in identifying and collecting significant aspects of American visual culture, including photography, modern folk and self-taught art, African American art, Latino art, and video games. The museum has the largest collection of New Deal art and exceptional collections of contemporary craft, American impressionist paintings and masterpieces from the Gilded Age. In recent years, the museum has focused on strengthening its contemporary art collection, and in particular media arts, through acquisitions, awards, curatorial appointments, endowments, and by commissioning new artworks.
+The museum's main building, a National Historic Landmark located in the heart of Washington's downtown cultural district, has been meticulously renovated with expanded permanent-collection galleries and innovative public spaces. The Luce Foundation Center for American Art, the first visible art storage and study center in Washington, allows visitors to browse thousands of artworks from the collection. It adjoins the Lunder Conservation Center, which is shared with the National Portrait Gallery, the first art conservation facility to allow the public permanent behind-the-scenes views of the preservation work of museums. The Renwick Gallery, a branch of the museum that showcased the best craft objects and decorative arts from the 19th century to the present, is closed for renovation.
+National Outreach
+
+Second Floor Gallery
+Thomas Hart Benton's Achelous and Hercules dominates a gallery devoted to early modernist art.
+
+In addition to a robust exhibition program in Washington, D.C., the museum maintains a highly regarded traveling exhibition program. It has circulated hundreds of exhibitions since the program was established in 1951. From 2000 to 2005 while the museum's main building was closed for renovations, staff organized 14 exhibitions of more than 1,000 major artworks from the permanent collection that traveled to 105 venues across the United States. More than 2.5 million visitors saw these exhibitions. Since 2006, the museum has toured an additional 19 exhibitions to more than 60 cities. We currently have several major exhibitions touring the United States.
+The museum is a leader in providing electronic resources to schools and the public through its national education programs. We offer an array of interactive activities online featuring rich media assets that can easily be used by anyone, as well as Artful Connections, real-time video conference tours. The museum offers in-depth professional development programs for educators, including week-long national summer institutes in which teachers learn digital tools and teaching techniques for integrating art across the curriculum.
+Museum staff maintain six online research databases with more than 500,000 records, including the Inventories of American Painting and Sculpture that document more than 400,000 artworks in public and private collections worldwide. Each year, thousands of researchers contact the museum directly for assistance, and millions of virtual visitors from across the globe use the database resources available online. Save Outdoor Sculpture, a joint project between the museum and Heritage Preservation, is dedicated to the documentation and preservation of outdoor sculpture. Since 1970, the museum has hosted more than 400 scholars, who now occupy positions in academic and cultural institutions across the globe, through its highly regarded fellowship program. We also produce American Art, a peer-reviewed journal for new scholarship.
+Connecting Online
+
+Second Floor Gallery
+Selections from the museum's extensive collection of 19th century sculpture.
+
+The museum has been engaging audiences online since 1993 when we launched one of the earliest museum websites through America Online; our stand-alone site, AmericanArt.si.edu, was launched in 1995. Today, we use an array of social media sites to connect with visitors, including ArtBabble, Facebook, Flickr, Instagram, iTunes U, Pinterest, Tumblr, Twitter, and YouTube. In 2005, the museum debuted Eye Level, the first blog at the Smithsonian, which has approximately 8,000 readers each month. The museum produces several podcast series, which feature voices of artists, curators, visiting experts, and students. To receive updates about upcoming exhibitions, new programs, and views of life behind-the-scenes at the museum, sign-up for our e-newsletter.
+",
+        "event":["","",]
+    }
+}	
