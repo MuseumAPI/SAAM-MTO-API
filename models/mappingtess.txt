@@ -1,0 +1,29 @@
+Smithsonian American Art Museum
+
+
+E53 Place ----> 
+	P87	is identified by  --> E45 Address --> "8th and F Streets, NW, Washington, DC 20004"
+	P87 is Identified by  --> E48 Place Name --> "Smithsonian American Art Museum"
+	"hours open" --> "Open daily 11:30 a.m. to 7:00 p.m."
+	"Days Off" --> "Closed December 25"
+	"emergency Message" --> "";
+	"apply emergency message" --> 0
+	
+	
+	
+@base <http://edan.si.edu/saam/id/> .
+<object/1980.39.6/location> <http://www.w3.org/2000/01/rdf-schema#label> "Smithsonian American Art Museum:CurSite,GA; CurRoom,III" .
+<object/1980.39.6/location> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E53_Place> .
+<object/1980.39.6> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E22_Man-Made_Object> .
+<object/1980.39.6> <http://www.cidoc-crm.org/cidoc-crm/P55_has_current_location> <object/1980.39.6/location> .
+
+
+<http://americanart.si.edu?format=json> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E53_Place> .
+<http://americanart.si.edu?format=json> <http://http://www.cidoc-crm.org/cidoc-crm/P87> "8th and F Streets, NW, Washington, DC 20004" .
+<http://americanart.si.edu?format=json> <http://http://www.cidoc-crm.org/cidoc-crm/P87> "Smithsonian American Art Museum" . 
+"Smithsonian American Art Museum" <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E48_Place_Name> . 
+"8th and F Streets, NW, Washington, DC 20004" <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E45_Address> .
+<http://americanart.si.edu?format=json> "hours open" "Open daily 11:30 a.m. to 7:00 p.m." .
+<http://americanart.si.edu?format=json> "Days Off" "Closed December 25" .
+<http://americanart.si.edu?format=json> "emergency message" "" .
+<http://americanart.si.edu?format=json> "apply emergency message" 0
