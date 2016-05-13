@@ -1,0 +1,39 @@
+{"museums":[
+  {
+    "name": "Renwick Gallery",
+    "url": "renwick.americanart.si.edu",
+    "openingHours": "Open Daily 10 a.m.–5:30 p.m. Closed December 25",
+    "address": {
+      "addressCountry": "USA",
+      "addressLocality": "Washington",
+      "addressRegion": "District of Columbia",
+      "postalCode": "20006",
+      "streetAddress": "Pennsylvania Avenue at 17th Street NW",
+    },
+    "branchCode": "SAAM",
+    "event": [
+      "",
+      ""
+    ],
+    "faxNumber": "",
+    "geo": "{\"latitude\":\"\",\"longitude\":\"\"}",
+    "hasMap": "",
+    "openingHoursSpecification": {
+      "@context": "http://schema.org",
+      "@type": "@Museum",
+      "name": "Renwick Gallery",
+      "openingHours": "Mo,Tu,We,Th,Fr,Sa,Su 10:00-17:30",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "validFrom": "12-25",
+        "validThrough": "12-25",
+        "opens": "00:00",
+        "closes": "00:00"
+      }
+    },
+    "photo":"renwick.americanart.si.edu/sites/default/files/renwick/architecture_images/exterior_west-Photo-by-Ron-Blunt_800px.jpg",
+    "telephone":"(202) 633-7970",
+    "description":"renwick.americanart.si.edu/sites/default/files/renwick/architecture_images/exterior_west-Photo-by-Ron-Blunt_800px.jpg",
+    "image":"renwick.americanart.si.edu/sites/default/files/renwick/architecture_images/exterior_west-Photo-by-Ron-Blunt_800px.jpg"
+  }
+]}
