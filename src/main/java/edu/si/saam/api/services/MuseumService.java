@@ -26,6 +26,11 @@ public class MuseumService {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    /**
+     * Produces a list of all available museums.
+     *
+     * @return @java.uil.List of @edu.si.saam.api.models.Museum
+     */
     public List<Museum> getAllMuseums() {
 
         List<Museum> results = new ArrayList<Museum>();
@@ -52,6 +57,26 @@ public class MuseumService {
 //        results.add(m1);
 //        results.add(m2);
         return results;
+    }
+
+    /**
+     * Sets teh emergency message for a particular museum
+     * @param m a museum object to feed the service
+     * @return the updated edum.si.saam.api.models.Museum object
+     */
+    public Museum setEmergencyMessage(Museum m) {
+        //UPDATE table_name SET column1 = value1 WHERE [condition]
+        String sql = "update museums SET emergency_message=:emergency_message where url=:url";
+        SqlParameterSource namedParameters = new BeanPropertySqlParameterSource(m);
+        int status = namedJdbcTemplate
+                .update(sql, namedParameters);
+        // get the bean you've changed
+        List<Museum> results = namedJdbcTemplate.query("select * where url=:url", namedParameters,
+                BeanPropertyRowMapper.newInstance(Museum.class));
+
+        m = results.get(0);
+
+        return m;
     }
 
 }

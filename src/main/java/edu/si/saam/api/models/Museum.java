@@ -4,12 +4,21 @@ package edu.si.saam.api.models;
  * Created by richardbrassell on 6/3/16.
  */
 public class Museum {
+    private String url;
     private String name;
     private String address;
     private String hours;
     private String days_off;
     private String emergency_message;
     private boolean emergency_message_on;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public String getName() {
         return name;
