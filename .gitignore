@@ -14,3 +14,5 @@
 *.class
 
 *.class
+
+.idea/libraries/Gradle__junit_junit_4_11.xml
