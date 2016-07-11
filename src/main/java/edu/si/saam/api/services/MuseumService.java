@@ -21,6 +21,14 @@ public class MuseumService {
 
     /** The named jdbc template. */
     private NamedParameterJdbcTemplate namedJdbcTemplate;
+    public void setNamedJdbcTemplate(NamedParameterJdbcTemplate namedJdbcTemplate) {
+        this.namedJdbcTemplate = namedJdbcTemplate;
+    }
+
+    private BeanPropertyRowMapper<Museum> museumBeanPropertyRowMapper;
+    public void setMuseumBeanPropertyRowMapper(BeanPropertyRowMapper<Museum> museumBeanPropertyRowMapper){
+        this.museumBeanPropertyRowMapper = museumBeanPropertyRowMapper;
+    }
 
     /** The jdbc template. */
     @Autowired
@@ -37,13 +45,16 @@ public class MuseumService {
 
         SqlParameterSource namedParameters = new BeanPropertySqlParameterSource(new Museum());
 
-        namedJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
+        if (namedJdbcTemplate == null) {
+            namedJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
+        }
 
         try {
             results = namedJdbcTemplate
                     .query("select * from museums", namedParameters,
                             BeanPropertyRowMapper
                                     .newInstance(Museum.class));
+            System.out.println("Results Size == " + results.size());
         } catch (Exception e) {
             e.printStackTrace();
         }

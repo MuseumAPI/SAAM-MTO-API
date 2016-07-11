@@ -33,6 +33,7 @@ dependencies {
     compile("org.springframework:spring-core:4.2.6.RELEASE")
     testCompile group: 'junit', name: 'junit', version: '4.11'
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile(group: 'org.mockito', name: 'mockito-core', version: '1.10.19')
 }
 
 task wrapper(type: Wrapper) {

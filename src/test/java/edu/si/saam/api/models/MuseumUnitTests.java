@@ -6,7 +6,7 @@ import org.junit.Test;
 /**
  * Created by richard on 7/7/16.
  */
-public class MuseumTest {
+public class MuseumUnitTests {
 
     @Test
     public void gettersAndSettersTest() {

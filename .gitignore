@@ -16,3 +16,5 @@
 *.class
 
 .idea/libraries/Gradle__junit_junit_4_11.xml
+
+build/classes/main/edu/si/saam/api/models/Museum.class
