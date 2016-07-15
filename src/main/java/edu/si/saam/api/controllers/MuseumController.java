@@ -17,7 +17,6 @@ import java.util.concurrent.atomic.AtomicLong;
 public class MuseumController {
 
     private static final String template = "%s Museum(s)!";
-    private final AtomicLong counter = new AtomicLong();
 
     @Autowired
     public MuseumService ms;
