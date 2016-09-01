@@ -7,7 +7,7 @@ import java.util.List;
  * Created by richard on 7/11/16.
  */
 public class Exhibition {
-    private String exhibit_code;
+    private String exhibition_code;
     private String accession_number;
     private String headline;
     private String open_date;
@@ -105,12 +105,12 @@ public class Exhibition {
         this.relatedPublications = relatedPublications;
     }
 
-    public String getExhibit_code() {
-        return exhibit_code;
+    public String getExhibition_code() {
+        return exhibition_code;
     }
 
-    public void setExhibit_code(String exhibit_code) {
-        this.exhibit_code = exhibit_code;
+    public void setExhibition_code(String exhibition_code) {
+        this.exhibition_code = exhibition_code;
     }
 
     public String getAccession_number() {
@@ -217,7 +217,9 @@ public class Exhibition {
         return text;
     }
 
-    public void setText(String text) { this.text = text; }
+    public void setText(String text) {
+        this.text = text;
+    }
 
     public String getText_display() {
         return text_display;
@@ -290,6 +292,5 @@ public class Exhibition {
     public String getSubject_specific() { return this.subject_specific; }
 
     public void setSubject_specific( String subject_specific ) { this.subject_specific = subject_specific; }
-
 
 }

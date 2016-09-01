@@ -25,7 +25,8 @@ public class ExhibitionController {
      * @param order - the column you wish to sort the results
      * @return list of exhibits
      */
-    @RequestMapping(path="/exhibits",method=RequestMethod.GET)
+
+    @RequestMapping(path="/exhibitions",method=RequestMethod.GET)
     public List<Exhibition> getAllExhibits(@RequestParam(value="limit",defaultValue = "20") int limit,
                                            @RequestParam(value="start",defaultValue = "0") int start,
                                            @RequestParam(value="order",defaultValue = "open_date") String order ) {
@@ -48,18 +49,18 @@ public class ExhibitionController {
      * Returns a requested exhibit
      * @return the requested exhibit
      */
-    @RequestMapping(path="/exhibits/{exhibit_code}", method=RequestMethod.GET)
-    public Exhibition getExhibition(@PathVariable("exhibit_code") String exhibition_code, HttpServletRequest request) {
+    @RequestMapping(path="/exhibitions/{exhibition_code}", method=RequestMethod.GET)
+    public Exhibition getExhibition(@PathVariable("exhibition_code") String exhibition_code, HttpServletRequest request) {
 
         Exhibition ex = new Exhibition();
-        ex.setExhibit_code(exhibition_code);
+        ex.setExhibition_code(exhibition_code);
 
         Exhibition results = es.getExhibition(ex);
 
         return results;
     }
 
-    @RequestMapping(path="/exhibits",method=RequestMethod.POST)
+    @RequestMapping(path="/exhibitions",method=RequestMethod.POST)
     public Exhibition addExhibition(@RequestBody Exhibition ex)
     {
         // pull the posted json data out of the request.
@@ -73,7 +74,7 @@ public class ExhibitionController {
      * Updates the information for an exhibit
      * @return the updated exhibition
      */
-    @RequestMapping(path="/exhibits", method=RequestMethod.PUT)
+    @RequestMapping(path="/exhibitions", method=RequestMethod.PUT)
     public Exhibition updateExhibition(@RequestBody final Exhibition ex) {
 
         Exhibition results = es.updateExhibition(ex);
@@ -82,13 +83,13 @@ public class ExhibitionController {
     }
 
     /**
-     * Removes the specified exhibit
+     * Removes the specified exhibition
      */
-    @RequestMapping(path="/exhibits/{exhibit_code}", method=RequestMethod.DELETE)
-    public void deleteExhibition(@PathVariable("exhibit_code") String exhibition_code, HttpServletRequest request) {
+    @RequestMapping(path="/exhibitions/{exhibition_code}", method=RequestMethod.DELETE)
+    public void deleteExhibition(@PathVariable("exhibition_code") String exhibition_code, HttpServletRequest request) {
 
         Exhibition ex = new Exhibition();
-        ex.setExhibit_code(exhibition_code);
+        ex.setExhibition_code(exhibition_code);
 
         es.deleteExhibition(ex);
     }

@@ -56,7 +56,7 @@ public class ExhibitionService {
                     .query(sql, namedParameters,
                             BeanPropertyRowMapper
                                     .newInstance(Exhibition.class));
-            System.out.println("Results Size == " + results.size());
+//            System.out.println("Results Size == " + results.size());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -72,8 +72,7 @@ public class ExhibitionService {
      */
     public Exhibition getExhibition(Exhibition ex) {
 
-
-        String sql = "select * from exhibitions where exhibit_code=:exhibit_code limit 0,1";
+        String sql = "select * from exhibitions where exhibition_code=:exhibition_code limit 0,1";
         List<Exhibition> r_exhibitions = new ArrayList<Exhibition>();
         SqlParameterSource namedParameters = new BeanPropertySqlParameterSource(ex);
 
@@ -90,10 +89,12 @@ public class ExhibitionService {
         }
 
         if (r_exhibitions.size() > 0) {
-            return r_exhibitions.get(0);
+            ex = r_exhibitions.get(0);
         }
 
-        return new Exhibition();
+//        System.out.println(ex.getText_display());
+
+        return ex;
     }
 
     /**
@@ -103,16 +104,17 @@ public class ExhibitionService {
      */
     public Exhibition addExhibition(Exhibition ex) {
 
+        System.out.println("In addExhibition.");
 
         if (namedJdbcTemplate == null) {
             namedJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
         }
 
-        String sql = "insert into exhibitions (exhibit_code,open_date,close_date,headline,text,text_display," +
+        String sql = "insert into exhibitions (exhibition_code,open_date,close_date,headline,text,text_display," +
                 "accession_number,saam_image,location,related_constituent,web_directory,traveling,permanent_exhibit," +
                 "travel_beg_date,travel_end_date,offered_for_tour,past_date,publication,isbn_softcover," +
                 "isbn_hardcover,subject_general,subject_specific,display_date) " +
-                "VALUES (:exhibit_code,:open_date,:close_date,:headline,:text,:text_display,:accession_number," +
+                "VALUES (:exhibition_code,:open_date,:close_date,:headline,:text,:text_display,:accession_number," +
                 ":saam_image,:location,:related_constituent,:web_directory,:traveling,:permanent_exhibit," +
                 ":travel_beg_date,:travel_end_date,:offered_for_tour,:past_date,:publication,:isbn_softcover," +
                 ":isbn_hardcover,:subject_general,:subject_specific,:display_date)";
@@ -128,23 +130,24 @@ public class ExhibitionService {
      * Updates the exhibition using the filled out exhibition object.
      *
      * @param ex - exhibition object with exhibit changes.
-     * @return the updated exhibit object
+     * @return the updated exhibition object
      */
     public Exhibition updateExhibition(Exhibition ex) {
 
+        System.out.println("In updateExhibition");
 
         if (namedJdbcTemplate == null) {
             namedJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
         }
 
-        String sql = "update  exhibitions set exhibit_code=:exhibit_code,open_date=:open_date,close_date=:close_date," +
+        String sql = "update  exhibitions set exhibition_code=:exhibition_code,open_date=:open_date,close_date=:close_date," +
                 "headline=:headline,text=:text,text_display=:text_display,accession_number=:accession_number," +
                 "saam_image=:saam_image,location=:location,related_constituent=:related_constituent," +
                 "web_directory=:web_directory,traveling=:traveling,permanent_exhibit=:permanent_exhibit," +
                 "travel_beg_date:=travel_beg_date,travel_end_date=:travel_end_date," +
                 "offered_for_tour=:offered_for_tour,past_date=:past_date,publication=:publication," +
                 "isbn_softcover=:isbn_softcover,isbn_hardcover:=isbn_hardcover,subject_general=:subject_general," +
-                "subject_specific=:subject_specific,display_date=:display_date where exhibit_code=:exhibit_code";
+                "subject_specific=:subject_specific,display_date=:display_date where exhibition_code=:exhibition_code";
 
         SqlParameterSource namedParameters = new BeanPropertySqlParameterSource(ex);
 
@@ -166,7 +169,7 @@ public class ExhibitionService {
 
         try {
 
-            int satus = namedJdbcTemplate.update("delete from exhibitions where exhibit_code=:exhibit_code",
+            int satus = namedJdbcTemplate.update("delete from exhibitions where exhibition_code=:exhibition_code",
                     namedParameters);
 
         } catch (Exception e) {
