@@ -140,7 +140,9 @@ public class ExhibitionService {
             namedJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
         }
 
-        String sql = "update  exhibitions set exhibition_code=:exhibition_code,open_date=:open_date,close_date=:close_date," +
+        // if exhibitions exists then continue else go to add.
+
+        String sql = "update exhibitions set exhibition_code=:exhibition_code,open_date=:open_date,close_date=:close_date," +
                 "headline=:headline,text=:text,text_display=:text_display,accession_number=:accession_number," +
                 "saam_image=:saam_image,location=:location,related_constituent=:related_constituent," +
                 "web_directory=:web_directory,traveling=:traveling,permanent_exhibit=:permanent_exhibit," +

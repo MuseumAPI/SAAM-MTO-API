@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -60,21 +61,11 @@ public class ExhibitionController {
         return results;
     }
 
-    @RequestMapping(path="/exhibitions",method=RequestMethod.POST)
-    public Exhibition addExhibition(@RequestBody Exhibition ex)
-    {
-        // pull the posted json data out of the request.
-
-        Exhibition results  = es.addExhibition(ex);
-
-        return results;
-    }
-
     /**
      * Updates the information for an exhibit
      * @return the updated exhibition
      */
-    @RequestMapping(path="/exhibitions", method=RequestMethod.PUT)
+    @RequestMapping(path="/exhibitions", method=RequestMethod.POST)
     public Exhibition updateExhibition(@RequestBody final Exhibition ex) {
 
         Exhibition results = es.updateExhibition(ex);
@@ -85,7 +76,7 @@ public class ExhibitionController {
     /**
      * Removes the specified exhibition
      */
-    @RequestMapping(path="/exhibitions/{exhibition_code}", method=RequestMethod.DELETE)
+    @RequestMapping(path="/exhibitions/{exhibition_code}/delete", method=RequestMethod.GET)
     public void deleteExhibition(@PathVariable("exhibition_code") String exhibition_code, HttpServletRequest request) {
 
         Exhibition ex = new Exhibition();
@@ -93,6 +84,4 @@ public class ExhibitionController {
 
         es.deleteExhibition(ex);
     }
-
-
 }
