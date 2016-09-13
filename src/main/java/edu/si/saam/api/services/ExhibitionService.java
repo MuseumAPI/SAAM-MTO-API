@@ -134,6 +134,10 @@ public class ExhibitionService {
      */
     public Exhibition updateExhibition(Exhibition ex) {
 
+        if(ex.getExhibition_code() == null || "".equalsIgnoreCase(ex.getExhibition_code().trim())) {
+            return addExhibition(ex);
+        }
+
         System.out.println("In updateExhibition");
 
         if (namedJdbcTemplate == null) {
