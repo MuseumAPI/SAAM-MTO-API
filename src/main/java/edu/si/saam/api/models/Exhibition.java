@@ -1,24 +1,36 @@
 package edu.si.saam.api.models;
 
 import java.sql.Blob;
+import java.sql.Date;
 import java.util.List;
 
 /**
  * Created by richard on 7/11/16.
  */
 public class Exhibition {
+
+    private String type;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     private String exhibition_code;
     private String accession_number;
     private String headline;
-    private String open_date;
-    private String close_date;
-    private String display_date;
+    private Date open_date;
+    private Date close_date;
+    private Date display_date;
     private byte permanent_exhibit;
     private int museum_id;
     private int gallery_id;
     private byte traveling;
-    private String travel_beg_date;
-    private String travel_end_date;
+    private Date travel_beg_date;
+    private Date travel_end_date;
     private byte offered_for_tour;
     private String web_directory;
     private String saam_image;
@@ -28,16 +40,16 @@ public class Exhibition {
     private String shortSummary;
     private String text;
     private String text_display;
-    private String past_date;
+    private Date past_date;
     private byte publication;
     private String isbn_softcover;
     private String isbn_hardcover;
-    private String publication_date;
-    private String archive_date;
+    private Date publication_date;
+    private Date archive_date;
     private String location;
-    private List<String> relatedWorks;
-    private List<String> relatedPersons;
-    private List<String> relatedPublications;
+    private String relatedWorks;
+    private String relatedPersons;
+    private String relatedPublications;
     private String subject_general;
     private String subject_specific;
 
@@ -81,27 +93,27 @@ public class Exhibition {
         this.shortSummary = shortSummary;
     }
 
-    public List<String> getRelatedWorks() {
+    public String getRelatedWorks() {
         return relatedWorks;
     }
 
-    public void setRelatedWorks(List<String> relatedWorks) {
+    public void setRelatedWorks(String relatedWorks) {
         this.relatedWorks = relatedWorks;
     }
 
-    public List<String> getRelatedPersons() {
+    public String getRelatedPersons() {
         return relatedPersons;
     }
 
-    public void setRelatedPersons(List<String> relatedPersons) {
+    public void setRelatedPersons(String relatedPersons) {
         this.relatedPersons = relatedPersons;
     }
 
-    public List<String> getRelatedPublications() {
+    public String getRelatedPublications() {
         return relatedPublications;
     }
 
-    public void setRelatedPublications(List<String> relatedPublications) {
+    public void setRelatedPublications(String relatedPublications) {
         this.relatedPublications = relatedPublications;
     }
 
@@ -121,25 +133,25 @@ public class Exhibition {
         this.accession_number = accession_number;
     }
 
-    public String getOpen_date() {
+    public Date getOpen_date() {
         return open_date;
     }
 
-    public void setOpen_date(String open_date) {
+    public void setOpen_date(Date open_date) {
         this.open_date = open_date;
     }
 
-    public String getClose_date() { return close_date; }
+    public Date getClose_date() { return close_date; }
 
-    public void setClose_date(String close_date) {
+    public void setClose_date(Date close_date) {
         this.close_date = close_date;
     }
 
-    public String getDisplay_date() {
+    public Date getDisplay_date() {
         return display_date;
     }
 
-    public void setDisplay_date(String display_date) {
+    public void setDisplay_date(Date display_date) {
         this.display_date = display_date;
     }
 
@@ -167,19 +179,19 @@ public class Exhibition {
         this.gallery_id = gallery_id;
     }
 
-    public String getTravel_beg_date() {
+    public Date getTravel_beg_date() {
         return travel_beg_date;
     }
 
-    public void setTravel_beg_date(String travel_beg_date) {
+    public void setTravel_beg_date(Date travel_beg_date) {
         this.travel_beg_date = travel_beg_date;
     }
 
-    public String getTravel_end_date() {
+    public Date getTravel_end_date() {
         return travel_end_date;
     }
 
-    public void setTravel_end_date(String travel_end_date) {
+    public void setTravel_end_date(Date travel_end_date) {
         this.travel_end_date = travel_end_date;
     }
 
@@ -229,11 +241,11 @@ public class Exhibition {
         this.text_display = text_display;
     }
 
-    public String getPast_date() {
+    public Date getPast_date() {
         return past_date;
     }
 
-    public void setPast_date(String past_date) {
+    public void setPast_date(Date past_date) {
         this.past_date = past_date;
     }
 
@@ -261,19 +273,19 @@ public class Exhibition {
         this.isbn_hardcover = isbn_hardcover;
     }
 
-    public String getPublication_date() {
+    public Date getPublication_date() {
         return publication_date;
     }
 
-    public void setPublication_date(String publication_date) {
+    public void setPublication_date(Date publication_date) {
         this.publication_date = publication_date;
     }
 
-    public String getArchive_date() {
+    public Date getArchive_date() {
         return archive_date;
     }
 
-    public void setArchive_date(String archive_date) {
+    public void setArchive_date(Date archive_date) {
         this.archive_date = archive_date;
     }
 

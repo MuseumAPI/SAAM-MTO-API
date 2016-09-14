@@ -110,14 +110,15 @@ public class ExhibitionService {
             namedJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
         }
 
+
         String sql = "insert into exhibitions (exhibition_code,open_date,close_date,headline,text,text_display," +
                 "accession_number,saam_image,location,related_constituent,web_directory,traveling,permanent_exhibit," +
                 "travel_beg_date,travel_end_date,offered_for_tour,past_date,publication,isbn_softcover," +
-                "isbn_hardcover,subject_general,subject_specific,display_date) " +
+                "isbn_hardcover,subject_general,subject_specific,display_date,caption) " +
                 "VALUES (:exhibition_code,:open_date,:close_date,:headline,:text,:text_display,:accession_number," +
                 ":saam_image,:location,:related_constituent,:web_directory,:traveling,:permanent_exhibit," +
                 ":travel_beg_date,:travel_end_date,:offered_for_tour,:past_date,:publication,:isbn_softcover," +
-                ":isbn_hardcover,:subject_general,:subject_specific,:display_date)";
+                ":isbn_hardcover,:subject_general,:subject_specific,:display_date,:caption)";
 
         SqlParameterSource namedParameters = new BeanPropertySqlParameterSource(ex);
 
@@ -134,7 +135,7 @@ public class ExhibitionService {
      */
     public Exhibition updateExhibition(Exhibition ex) {
 
-        if(ex.getExhibition_code() == null || "".equalsIgnoreCase(ex.getExhibition_code().trim())) {
+        if(ex.getType() != null && "add".equalsIgnoreCase(ex.getType().trim())) {
             return addExhibition(ex);
         }
 
@@ -153,7 +154,7 @@ public class ExhibitionService {
                 "travel_beg_date:=travel_beg_date,travel_end_date=:travel_end_date," +
                 "offered_for_tour=:offered_for_tour,past_date=:past_date,publication=:publication," +
                 "isbn_softcover=:isbn_softcover,isbn_hardcover:=isbn_hardcover,subject_general=:subject_general," +
-                "subject_specific=:subject_specific,display_date=:display_date where exhibition_code=:exhibition_code";
+                "subject_specific=:subject_specific,display_date=:display_date,caption=:caption where exhibition_code=:exhibition_code";
 
         SqlParameterSource namedParameters = new BeanPropertySqlParameterSource(ex);
 
