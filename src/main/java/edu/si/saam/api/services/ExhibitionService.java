@@ -25,19 +25,14 @@ public class ExhibitionService {
         this.namedJdbcTemplate = namedJdbcTemplate;
     }
 
-    private BeanPropertyRowMapper<Museum> museumBeanPropertyRowMapper;
-    public void setMuseumBeanPropertyRowMapper(BeanPropertyRowMapper<Museum> museumBeanPropertyRowMapper){
-        this.museumBeanPropertyRowMapper = museumBeanPropertyRowMapper;
-    }
-
     /** The jdbc template. */
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
     /**
-     * Produces a list of all available museums.
+     * Produces a list of all available exhibitions.
      *
-     * @return @java.uil.List of @edu.si.saam.api.models.Museum
+     * @return @java.uil.List of @edu.si.saam.api.models.Exhibition
      */
     public List<Exhibition> getAllExhibitions(int limit, int start, String order)  {
 
@@ -65,10 +60,10 @@ public class ExhibitionService {
     }
 
     /**
-     * getExhibition takes a fresh exhibition object with a set id and locates that specific exhibition object and
-     * returning it.
-     * @param ex - exhibition object containing only the exhibit code.
-     * @return the specified exhibition
+     * getExhibition takes a fresh @edu.si.saam.api.models.Exhibition object with a set id and locates that specific
+     * exhibition object and returning it.
+     * @param ex - @edu.si.saam.api.models.Exhibition object containing only the exhibit code.
+     * @return the specified @edu.si.saam.api.models.Exhibition
      */
     public Exhibition getExhibition(Exhibition ex) {
 
@@ -98,8 +93,8 @@ public class ExhibitionService {
     }
 
     /**
-     * Takes a given exhibition object and adds it to the backend.
-     * @param ex - a filled out exhibit object
+     * Takes a given @edu.si.saam.api.models.Exhibition object and adds it to the backend.
+     * @param ex - a filled out @edu.si.saam.api.models.Exhibition object
      * @return
      */
     public Exhibition addExhibition(Exhibition ex) {
@@ -128,10 +123,10 @@ public class ExhibitionService {
     }
 
     /**
-     * Updates the exhibition using the filled out exhibition object.
+     * Updates the @edu.si.saam.api.models.Exhibition using the filled out @edu.si.saam.api.models.Exhibition object.
      *
-     * @param ex - exhibition object with exhibit changes.
-     * @return the updated exhibition object
+     * @param ex - @edu.si.saam.api.models.Exhibition object with exhibit changes.
+     * @return the updated @edu.si.saam.api.models.Exhibition object
      */
     public Exhibition updateExhibition(Exhibition ex) {
 
@@ -151,9 +146,9 @@ public class ExhibitionService {
                 "headline=:headline,text=:text,text_display=:text_display,accession_number=:accession_number," +
                 "saam_image=:saam_image,location=:location,related_constituent=:related_constituent," +
                 "web_directory=:web_directory,traveling=:traveling,permanent_exhibit=:permanent_exhibit," +
-                "travel_beg_date:=travel_beg_date,travel_end_date=:travel_end_date," +
+                "travel_beg_date=:travel_beg_date,travel_end_date=:travel_end_date," +
                 "offered_for_tour=:offered_for_tour,past_date=:past_date,publication=:publication," +
-                "isbn_softcover=:isbn_softcover,isbn_hardcover:=isbn_hardcover,subject_general=:subject_general," +
+                "isbn_softcover=:isbn_softcover,isbn_hardcover=:isbn_hardcover,subject_general=:subject_general," +
                 "subject_specific=:subject_specific,display_date=:display_date,caption=:caption where exhibition_code=:exhibition_code";
 
         SqlParameterSource namedParameters = new BeanPropertySqlParameterSource(ex);
@@ -164,7 +159,7 @@ public class ExhibitionService {
     }
 
     /**
-     * Deletes an existing exhibition
+     * Deletes an existing @edu.si.saam.api.models.Exhibition
      */
     public void deleteExhibition(Exhibition ex){
 
