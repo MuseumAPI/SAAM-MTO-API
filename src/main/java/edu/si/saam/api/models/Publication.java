@@ -28,8 +28,8 @@ public class Publication {
     public String coPublisherDisplay;
     public String blurbText;
     public String pages;
-    public String ISBNNoHardcover;
-    public String ISBNNoSoftcover;
+    public String IsbnNoHardcover;
+    public String IsbnNoSoftcover;
     public int yearPublished;
     public String dimensions;
     public String subjectType;
@@ -123,20 +123,20 @@ public class Publication {
         this.pages = pages;
     }
 
-    public String getISBNNoHardcover() {
-        return ISBNNoHardcover;
+    public String getIsbnNoHardcover() {
+        return IsbnNoHardcover;
     }
 
-    public void setISBNNoHardcover(String ISBNNoHardcover) {
-        this.ISBNNoHardcover = ISBNNoHardcover;
+    public void setIsbnNoHardcover(String IsbnNoHardcover) {
+        this.IsbnNoHardcover = IsbnNoHardcover;
     }
 
-    public String getISBNNoSoftcover() {
-        return ISBNNoSoftcover;
+    public String getIsbnNoSoftcover() {
+        return IsbnNoSoftcover;
     }
 
-    public void setISBNNoSoftcover(String ISBNNoSoftcover) {
-        this.ISBNNoSoftcover = ISBNNoSoftcover;
+    public void setIsbnNoSoftcover(String IsbnNoSoftcover) {
+        this.IsbnNoSoftcover = IsbnNoSoftcover;
     }
 
     public int getYearPublished() {

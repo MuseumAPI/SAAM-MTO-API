@@ -45,7 +45,7 @@ public class PublicationService {
             namedJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
         }
 
-        String sql = "select * from publication " + order + " limit "+ start + "," + limit;
+        String sql = "select * from publications " + order + " limit "+ start + "," + limit;
 
         try {
             results = namedJdbcTemplate

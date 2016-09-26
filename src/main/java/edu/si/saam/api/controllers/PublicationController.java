@@ -32,15 +32,15 @@ public class PublicationController {
     @RequestMapping(path="/publications",method=RequestMethod.GET)
     public List<Publication> getAllPublications(@RequestParam(value="limit",defaultValue = "20") int limit,
                                                 @RequestParam(value="start",defaultValue = "0") int start,
-                                                @RequestParam(value="order",defaultValue = "publication_date") String order ) {
+                                                @RequestParam(value="order",defaultValue = "yearPublished") String order ) {
 
         // small bit of validation
-        if (order.equalsIgnoreCase("publication_date") || order.equalsIgnoreCase("location")
-                || order.equalsIgnoreCase("end_date"))
+        if (order.equalsIgnoreCase("author")
+                || order.equalsIgnoreCase("type"))
         {
             order = " order by " + order + " desc";
         } else {
-            order = " order by open_date desc";
+            order = " order by yearPublished desc";
         }
 
         List<Publication> results = ps.getAllPublications(limit, start, order);
