@@ -22,7 +22,7 @@ public class Publication {
     public String internalTitle;
     public String author;
     public String publisher;
-    public String exhibitCode;
+    public String exhibitionCode;
     public String bookTitleDisplay;
     public String authorDisplay;
     public String coPublisherDisplay;
@@ -75,12 +75,12 @@ public class Publication {
         this.publisher = publisher;
     }
 
-    public String getExhibitCode() {
-        return exhibitCode;
+    public String getExhibitionCode() {
+        return exhibitionCode;
     }
 
-    public void setExhibitCode(String exhibitCode) {
-        this.exhibitCode = exhibitCode;
+    public void setExhibitionCode(String exhibitionCode) {
+        this.exhibitionCode = exhibitionCode;
     }
 
     public String getBookTitleDisplay() {
