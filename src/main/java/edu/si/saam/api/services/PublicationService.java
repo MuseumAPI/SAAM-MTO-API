@@ -9,13 +9,16 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by richardbrassell on 7/15/16.
+ * Created by BrassellRK@si.edu on 7/15/16.
  */
 @Repository
 public class PublicationService {
@@ -31,9 +34,11 @@ public class PublicationService {
     private JdbcTemplate jdbcTemplate;
 
     /**
-     * Produces a list of all available @edu.si.saam.api.models.Publication.
-     *
-     * @return @java.uil.List of @edu.si.saam.api.models.Publication
+     * Produces a list of all available edu.si.saam.api.models.Publication.
+     * @param limit - the number of edu.si.saam.api.models.Publication you want returned
+     * @param start - where to start in the list of results
+     * @param order - how to sort the list of results
+     * @return java.uil.List of edu.si.saam.api.models.Publication
      */
     public List<Publication> getAllPublications(int limit, int start, String order)  {
 
@@ -44,6 +49,14 @@ public class PublicationService {
         if (namedJdbcTemplate == null) {
             namedJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
         }
+
+        // small bit of validation
+        if (order.equalsIgnoreCase("yearPublished")) {
+            order = " order by " + order + " desc";
+        } else {
+            order = " order by yearPublished desc";
+        }
+
 
         String sql = "select * from publications " + order + " limit "+ start + "," + limit;
 
@@ -62,9 +75,9 @@ public class PublicationService {
 
     /**
      * getPublication takes a fresh @edu.si.saam.api.models.Publication object with a set id and locates that specific
-     * @edu.si.saam.api.models.Publication object and returning it.
-     * @param publication - @edu.si.saam.api.models.Publication object containing only the exhibit code.
-     * @return the specified @edu.si.saam.api.models.Publication
+     * edu.si.saam.api.models.Publication object and returns it.
+     * @param publication - edu.si.saam.api.models.Publication object containing only the exhibit code.
+     * @return the specified edu.si.saam.api.models.Publication
      */
     public Publication getPublication(Publication publication) {
 
@@ -94,9 +107,9 @@ public class PublicationService {
     }
 
     /**
-     * Takes a given @edu.si.saam.api.models.Publication object and adds it to the backend.
-     * @param publication - a filled out @edu.si.saam.api.models.Publication object
-     * @return - the added @edu.si.saam.api.models.Publication
+     * Takes a given edu.si.saam.api.models.Publication object and adds it to the backend.
+     * @param publication - a filled out edu.si.saam.api.models.Publication object
+     * @return - the added edu.si.saam.api.models.Publication
      */
     public Publication addPublication(Publication publication) {
 
@@ -116,24 +129,30 @@ public class PublicationService {
 
         SqlParameterSource namedParameters = new BeanPropertySqlParameterSource(publication);
 
-        int status = namedJdbcTemplate.update(sql, namedParameters);
+        KeyHolder holder = new GeneratedKeyHolder();
+
+        int status = namedJdbcTemplate.update(sql, namedParameters, holder, new String[]{"id"});
+
+        int id = holder.getKey().intValue();
+
+        publication.setId(id);
 
         return publication;
     }
 
     /**
-     * Updates the @edu.si.saam.api.models.Publication using the filled out @edu.si.saam.api.models.Publication object.
+     * Updates the edu.si.saam.api.models.Publication using the filled out edu.si.saam.api.models.Publication object.
      *
-     * @param publication - @edu.si.saam.api.models.Publication object with @edu.si.saam.api.models.Publication changes.
-     * @return - the updated @edu.si.saam.api.models.Publication object
+     * @param publication - edu.si.saam.api.models.Publication object with edu.si.saam.api.models.Publication changes.
+     * @return - the updated edu.si.saam.api.models.Publication object
      */
     public Publication updatePublication(Publication publication) {
-
+//        System.out.println(publication.getActionType());
         if(publication.getActionType() != null && "add".equalsIgnoreCase(publication.getActionType().trim())) {
             return addPublication(publication);
         }
 
-        System.out.println("In updatePublication");
+//        System.out.println("In updatePublication");
 
         if (namedJdbcTemplate == null) {
             namedJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
@@ -141,11 +160,11 @@ public class PublicationService {
 
         // if publication exists then continue else go to add.
 
-        String sql = "update publication set type=:type,internalTitle=:internalType,author=:author," +
+        String sql = "update publications set type=:type,internalTitle=:internalTitle,author=:author," +
                 "publisher=:publisher,exhibitionCode=:exhibitionCode,bookTitleDisplay=:bookTitleDisplay," +
                 "authorDisplay=:authorDisplay,blurbText=:blurbText,pages=:pages,isbnNoHardcover=:isbnNoHardcover," +
                 "isbnNoSoftcover=:isbnNoSoftcover,yearPublished=:yearPublished,dimensions=:dimensions," +
-                "subjectType=:subjectType,relatedConstituent=:relatedConstituent,coPublisherDisplay=:coPublishDisplay" +
+                "subjectType=:subjectType,relatedConstituent=:relatedConstituent,coPublisherDisplay=:coPublisherDisplay" +
                 " where id=:id";
 
         SqlParameterSource namedParameters = new BeanPropertySqlParameterSource(publication);
@@ -156,7 +175,9 @@ public class PublicationService {
     }
 
     /**
-     * Deletes an existing @edu.si.saam.api.models.Publication
+     * Deletes an existing edu.si.saam.api.models.Publication
+     * @param publication - the edu.si.saam.api.models.Publication to remove.
+     * Currently not used.
      */
     public void deletePublication(Publication publication){
 

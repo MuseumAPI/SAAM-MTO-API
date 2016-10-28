@@ -11,7 +11,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by richardbrassell on 7/15/16.
+ * This controls access to the Exhibition data contained in the smashup DB
+ *
+ * Created by BrassellRK@si.edu on 7/15/16.
  */
 @RestController
 public class ExhibitionController {
@@ -20,15 +22,14 @@ public class ExhibitionController {
     public ExhibitionService es;
 
     /**
-     * Returns a list of exhibits
+     * Returns a list of exhibitions
      * @param limit - the number of exhibitions to return
-     * @parma start - the place in the list of results to start
+     * @param start - the place in the list of results to start
      * @param order - the column you wish to sort the results
-     * @return list of exhibits
+     * @return list of exhibitions
      */
-
     @RequestMapping(path="/exhibitions",method=RequestMethod.GET)
-    public List<Exhibition> getAllExhibits(@RequestParam(value="limit",defaultValue = "20") int limit,
+    public List<Exhibition> getAllExhibitions(@RequestParam(value="limit",defaultValue = "20") int limit,
                                            @RequestParam(value="start",defaultValue = "0") int start,
                                            @RequestParam(value="order",defaultValue = "open_date") String order ) {
 
@@ -47,8 +48,10 @@ public class ExhibitionController {
     }
 
     /**
-     * Returns a requested exhibit
-     * @return the requested exhibit
+     * Returns a requested exhibition
+     * @param exhibition_code - passed in on the path, unique code used to locate exhibition data
+     * @param request - the request recieved from an agent
+     * @return the requested exhibition
      */
     @RequestMapping(path="/exhibitions/{exhibition_code}", method=RequestMethod.GET)
     public Exhibition getExhibition(@PathVariable("exhibition_code") String exhibition_code, HttpServletRequest request) {
@@ -62,7 +65,8 @@ public class ExhibitionController {
     }
 
     /**
-     * Updates the information for an exhibit
+     * Updates the information for an exhibition based on passed in form data
+     * @param ex - the exhibition with updated exhibition data.
      * @return the updated exhibition
      */
     @RequestMapping(path="/exhibitions", method=RequestMethod.POST)
@@ -75,8 +79,11 @@ public class ExhibitionController {
 
     /**
      * Removes the specified exhibition
+     * @param exhibition_code - passed in on the path, unique code used to locate exhibition to be deleted
+     * @param request - the request received from an agent
+     * Currently not functional as DELETE is not a supported method at si.edu
      */
-    @RequestMapping(path="/exhibitions/{exhibition_code}/delete", method=RequestMethod.GET)
+    @RequestMapping(path="/exhibitions/{exhibition_code}/delete", method=RequestMethod.DELETE)
     public void deleteExhibition(@PathVariable("exhibition_code") String exhibition_code, HttpServletRequest request) {
 
         Exhibition ex = new Exhibition();

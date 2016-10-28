@@ -8,13 +8,15 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by richardbrassell on 7/15/16.
+ * Created by BrassellRK@si.edu on 7/15/16.
  */
 @Repository
 public class ExhibitionService {
@@ -31,8 +33,10 @@ public class ExhibitionService {
 
     /**
      * Produces a list of all available exhibitions.
-     *
-     * @return @java.uil.List of @edu.si.saam.api.models.Exhibition
+     * @param limit - the number of edu.si.saam.api.models.Exhibition you want returned
+     * @param start - where to start in the list of results
+     * @param order - how to sort the list of results
+     * @return java.uil.List of edu.si.saam.api.models.Exhibition
      */
     public List<Exhibition> getAllExhibitions(int limit, int start, String order)  {
 
@@ -60,10 +64,10 @@ public class ExhibitionService {
     }
 
     /**
-     * getExhibition takes a fresh @edu.si.saam.api.models.Exhibition object with a set id and locates that specific
-     * exhibition object and returning it.
-     * @param ex - @edu.si.saam.api.models.Exhibition object containing only the exhibit code.
-     * @return the specified @edu.si.saam.api.models.Exhibition
+     * getExhibition takes a fresh edu.si.saam.api.models.Exhibition object with a set id and locates that specific
+     * exhibition object and returns it.
+     * @param ex - edu.si.saam.api.models.Exhibition object containing only the exhibit code.
+     * @return the specified edu.si.saam.api.models.Exhibition
      */
     public Exhibition getExhibition(Exhibition ex) {
 
@@ -93,13 +97,13 @@ public class ExhibitionService {
     }
 
     /**
-     * Takes a given @edu.si.saam.api.models.Exhibition object and adds it to the backend.
-     * @param ex - a filled out @edu.si.saam.api.models.Exhibition object
-     * @return
+     * Takes a given edu.si.saam.api.models.Exhibition object and adds it to the backend.
+     * @param ex - a filled out edu.si.saam.api.models.Exhibition object
+     * @return the new exhibition
      */
     public Exhibition addExhibition(Exhibition ex) {
 
-        System.out.println("In addExhibition.");
+//        System.out.println("In addExhibition.");
 
         if (namedJdbcTemplate == null) {
             namedJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
@@ -123,10 +127,10 @@ public class ExhibitionService {
     }
 
     /**
-     * Updates the @edu.si.saam.api.models.Exhibition using the filled out @edu.si.saam.api.models.Exhibition object.
+     * Updates the edu.si.saam.api.models.Exhibition using the filled out edu.si.saam.api.models.Exhibition object.
      *
-     * @param ex - @edu.si.saam.api.models.Exhibition object with exhibit changes.
-     * @return the updated @edu.si.saam.api.models.Exhibition object
+     * @param ex - edu.si.saam.api.models.Exhibition object with exhibit changes.
+     * @return the updated edu.si.saam.api.models.Exhibition object
      */
     public Exhibition updateExhibition(Exhibition ex) {
 
@@ -159,7 +163,9 @@ public class ExhibitionService {
     }
 
     /**
-     * Deletes an existing @edu.si.saam.api.models.Exhibition
+     * Deletes an existing edu.si.saam.api.models.Exhibition
+     * @param ex - existing edu.si.saam.api.models.Exhibition to be deleted
+     * currently not used.
      */
     public void deleteExhibition(Exhibition ex){
 

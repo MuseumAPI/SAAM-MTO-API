@@ -11,7 +11,11 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * Created by richardbrassell on 6/3/16.
+ * This is a test controller to provide museum information.
+ * May revisit once we start talking about feeding site info to the CMS.
+ * Using a unified data location means we can alter it on one place as opposed
+ * to editing in multiple places.
+ * Created by BrassellRK@si.edu on 6/3/16.
  */
 @RestController
 public class MuseumController {
@@ -21,6 +25,10 @@ public class MuseumController {
     @Autowired
     public MuseumService ms;
 
+    /**
+     * Retrieves a list of museums from the DataSource
+     * @return - list of museums.
+     */
     @RequestMapping("/museums")
     public List<Museum> getAllMuseums() {
 

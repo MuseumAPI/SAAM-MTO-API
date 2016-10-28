@@ -46,4 +46,9 @@ task wrapper(type: Wrapper) {
 group 'edu.si.saam'
 version '1.0-SNAPSHOT'
 
+task myJavadocs(type: Javadoc) {
+    source = sourceSets.main.allJava
+    classpath = configurations.compile
+}
+
 

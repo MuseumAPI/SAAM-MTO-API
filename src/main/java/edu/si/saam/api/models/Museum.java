@@ -1,7 +1,9 @@
 package edu.si.saam.api.models;
 
 /**
- * Created by richardbrassell on 6/3/16.
+ * Model describing a museum.
+ *
+ * Created by BrassellRK@si.edu on 6/3/16.
  */
 public class Museum {
     private String url;

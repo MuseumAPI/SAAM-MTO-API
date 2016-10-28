@@ -3,7 +3,7 @@ package edu.si.saam.api.models;
 /**
  * POJO representation of a Smithsonian American Art Museum Publication.
  *
- * Created by richard on 4/20/16.
+ * Created by BrassellRK@si.edu on 4/20/16.
  */
 public class Publication {
 

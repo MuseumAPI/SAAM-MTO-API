@@ -5,7 +5,8 @@ import java.sql.Date;
 import java.util.List;
 
 /**
- * Created by richard on 7/11/16.
+ * Models the exhibition data type.
+ * Created by BrassellRK@si.edu on 7/11/16.
  */
 public class Exhibition {
 

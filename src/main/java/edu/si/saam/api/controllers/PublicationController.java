@@ -24,11 +24,10 @@ public class PublicationController {
     /**
      * Returns a list of publications
      * @param limit - the number of publications to return
-     * @parma start - the place in the list of results to start
+     * @param start - the place in the list of results to start
      * @param order - the column you wish to sort the results
      * @return list of publications
      */
-
     @RequestMapping(path="/publications",method=RequestMethod.GET)
     public List<Publication> getAllPublications(@RequestParam(value="limit",defaultValue = "20") int limit,
                                                 @RequestParam(value="start",defaultValue = "0") int start,
@@ -50,6 +49,8 @@ public class PublicationController {
 
     /**
      * Returns the requested publication
+     * @param id - set on the path, the id of the publication to be retrieved
+     * @param request - the request received from an agent
      * @return the requested publication
      */
     @RequestMapping(path="/publications/{id}", method=RequestMethod.GET)
@@ -65,6 +66,7 @@ public class PublicationController {
 
     /**
      * Updates the information for a publication
+     * @param publication - the publication with data to be updated.
      * @return the updated publication
      */
     @RequestMapping(path="/publications", method=RequestMethod.POST)
@@ -77,8 +79,11 @@ public class PublicationController {
 
     /**
      * Removes the specified exhibition
+     * @param id - set on the path. the id of the publication to be removed
+     * @param request - the request received from an agent
+     * Currently not functional as DELETE is not a supported method at si.edu
      */
-    @RequestMapping(path="/publications/{id}/delete", method=RequestMethod.GET)
+    @RequestMapping(path="/publications/{id}/delete", method=RequestMethod.DELETE)
     public void deletePublication(@PathVariable("id") int id, HttpServletRequest request) {
 
         Publication publication = new Publication();

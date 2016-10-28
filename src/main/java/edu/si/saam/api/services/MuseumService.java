@@ -14,7 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by richardbrassell on 6/3/16.
+ * Service used to pull and alter @edu.si.saam.api.models.Museum objects in the DataSource
+ * Created by BrassellRK@si.edu on 6/3/16.
  */
 @Repository
 public class MuseumService {
@@ -37,7 +38,7 @@ public class MuseumService {
     /**
      * Produces a list of all available museums.
      *
-     * @return @java.uil.List of @edu.si.saam.api.models.Museum
+     * @return java.uil.List of edu.si.saam.api.models.Museum
      */
     public List<Museum> getAllMuseums() {
 
@@ -73,7 +74,7 @@ public class MuseumService {
     /**
      * Sets teh emergency message for a particular museum
      * @param m a museum object to feed the service
-     * @return the updated edum.si.saam.api.models.Museum object
+     * @return the updated edu.si.saam.api.models.Museum object
      */
     public Museum setEmergencyMessage(Museum m) {
         //UPDATE table_name SET column1 = value1 WHERE [condition]
@@ -89,5 +90,4 @@ public class MuseumService {
 
         return m;
     }
-
 }
